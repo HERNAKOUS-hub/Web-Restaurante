@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>La Tintorería - Contacto</title>
+    <link rel="stylesheet" href="Contacto.css" />
+    <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="img/LaTintoreriaLogo.png" alt="Cargando..." />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo-img">
+          <a href="Inicio.html"><img src="img/LaTintoreriaLogo.png" alt="Logo La Tintorería" /></a>
+        </div>
+        <div class="nav-container">
+          <ul class="nav-links">
+            <li><a href="Carta.html">Carta</a></li>
+            <li><a href="Bodega.html">La Bodega</a></li>
+            <li><a href="Reserva.html">Reserva</a></li>
+            <li><a href="Contacto.html" class="active">Contacto</a></li>
+          </ul>
+          
+          <div class="language-selector">
+            <a href="Contacto.html" class="lang-button active">
+              <img src="img/BanderaEspaña.webp" alt="Bandera de España" title="Español" />
+            </a>
+            <a href="Contact_en.html" class="lang-button">
+              <img src="img/BanderaReinoUnido.png" alt="Bandera de Reino Unido" title="English" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <section class="contact-container">
+      <h1 class="fade-element">Contacta con Nosotros</h1>
+      <p class="contact-intro fade-element">Tostas, raciones y recetas mediterráneas en los sótanos históricos del centro de Madrid.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info fade-element">
+          <div class="info-item">
+            <h2>Ubicación</h2>
+            <p>Calle de Espoz y Mina, 20</p>
+            <p>28012 Centro, Madrid, España</p>
+          </div>
+
+          <div class="info-item">
+            <h2>Horario</h2>
+            <p>Lunes a Domingo: 12:00 – 01:00</p>
+            <p><small>*Sujeto a cambios en festivos.</small></p>
+          </div>
+
+          <div class="info-item">
+            <h2>Contacto Directo</h2>
+            <p>Teléfono: +34 915 21 48 78</p>
+            <p>Email: contacto@latintoreriamadrid.com</p>
+          </div>
+
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.660144583163!2d-3.7034506!3d40.4141667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422880f089679f%3A0x6e09c8502f1837a4!2sC.%20de%20Espoz%20y%20Mina%2C%2020%2C%20Centro%2C%2028012%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+              width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-form-box fade-element">
+          <h2>Envíanos un mensaje</h2>
+          
+          <form class="contact-form">
+            <div class="grupo-input">
+              <input type="text" id="nombre" name="nombre" class="input-flotante" required>
+              <label for="nombre" class="label-flotante">Nombre</label>
+            </div>
+            
+            <div class="grupo-input">
+              <input type="email" id="email" name="email" class="input-flotante" required>
+              <label for="email" class="label-flotante">Correo Electrónico</label>
+            </div>
+            
+            <div class="grupo-input">
+              <input type="text" id="asunto" name="asunto" class="input-flotante" required>
+              <label for="asunto" class="label-flotante">Asunto</label>
+            </div>
+            
+            <div class="grupo-input">
+              <textarea id="mensaje" name="mensaje" class="input-flotante textarea-flotante" required></textarea>
+              <label for="mensaje" class="label-flotante">¿En qué podemos ayudarte?</label>
+            </div>
+            
+            <button type="submit" class="btn-contacto">Enviar Mensaje</button>
+          </form>
+          
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-vino fade-element">
+      <div class="footer-content">
+        <img src="img/PiePagina.png" alt="Pie de Página Decorativo" />
+      </div>
+    </footer>
+
+    <div class="copyright-bar">
+      <p>© Copyright - La Tintorería - powered by <strong>Hernan Fernandez</strong></p>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          preloader.classList.add("hidden");
+          setTimeout(() => { preloader.style.display = "none"; }, 300);
+        }, 500);
+      });
+
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); } 
+            else { entry.target.classList.remove('visible'); }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-element').forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

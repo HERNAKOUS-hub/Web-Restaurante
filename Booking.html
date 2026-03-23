@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>La Tintorería - Booking</title>
+    <link rel="stylesheet" href="Reserva.css" />
+    <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="img/LaTintoreriaLogo.png" alt="Loading..." />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo-img">
+          <a href="Index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
+        </div>
+        <div class="nav-container">
+          <ul class="nav-links">
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Cellar.html">The Cellar</a></li>
+            <li><a href="Booking.html" class="active">Booking</a></li>
+            <li><a href="Contact_en.html">Contact</a></li>
+          </ul>
+          
+          <div class="language-selector">
+            <a href="Reserva.html" class="lang-button" onclick="setLanguage('es')">
+              <img src="img/BanderaEspaña.webp" alt="Flag of Spain" title="Spanish" />
+            </a>
+            <a href="Booking.html" class="lang-button active" onclick="setLanguage('en')">
+              <img src="img/BanderaReinoUnido.png" alt="Flag of the UK" title="English" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <section class="reservation-container">
+      <h1 class="fade-element">Book Your Table</h1>
+      <p class="reserva-intro fade-element">Experience the culinary art of La Tintorería. Secure your spot in advance.</p>
+      
+      <form class="reservation-form fade-element">
+        <div class="form-group grupo-input">
+          <input type="text" id="name" name="name" class="input-flotante" required>
+          <label for="name" class="label-flotante">Full Name</label>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group grupo-input">
+            <input type="email" id="email" name="email" class="input-flotante" required>
+            <label for="email" class="label-flotante">Email Address</label>
+          </div>
+          <div class="form-group grupo-input">
+            <input type="tel" id="phone" name="phone" class="input-flotante" required>
+            <label for="phone" class="label-flotante">Phone Number</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group grupo-input">
+            <input type="text" id="date" name="date" class="input-flotante" onfocus="(this.type='date')" onblur="(this.value == '' ? this.type='text' : this.type='date')" required>
+            <label for="date" class="label-flotante">Date</label>
+          </div>
+          <div class="form-group grupo-input">
+            <input type="text" id="time" name="time" class="input-flotante" onfocus="(this.type='time')" onblur="(this.value == '' ? this.type='text' : this.type='time')" required>
+            <label for="time" class="label-flotante">Time</label>
+          </div>
+          <div class="form-group grupo-input select-grupo">
+            <select id="guests" name="guests" class="input-flotante" required>
+              <option value="" disabled selected hidden></option>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6">6+ People (Please call us)</option>
+            </select>
+            <label for="guests" class="label-flotante">Guests</label>
+          </div>
+        </div>
+
+        <div class="form-group grupo-input">
+          <textarea id="comments" name="comments" class="input-flotante textarea-flotante" required></textarea>
+          <label for="comments" class="label-flotante">Observations (Allergies, special requests...)</label>
+        </div>
+
+        <button type="submit" class="btn-reserva">Confirm Booking</button>
+      </form>
+    </section>
+
+    <footer class="footer-vino fade-element">
+      <div class="footer-content">
+        <img src="img/PiePagina.png" alt="Decorative Footer" />
+      </div>
+    </footer>
+
+    <div class="copyright-bar">
+      <p>© Copyright - La Tintorería - powered by <strong>Hernan Fernandez</strong></p>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          preloader.classList.add("hidden");
+          setTimeout(() => { preloader.style.display = "none"; }, 300);
+        }, 500);
+      });
+
+      function setLanguage(lang) {
+        console.log("Language changed to: " + lang);
+      }
+
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); } 
+            else { entry.target.classList.remove('visible'); }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-element').forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

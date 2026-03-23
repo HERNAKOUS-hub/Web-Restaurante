@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>La Tintorería - Contact Us</title>
+    <link rel="stylesheet" href="Contacto.css" />
+    <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="img/LaTintoreriaLogo.png" alt="Loading..." />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo-img">
+          <a href="Index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
+        </div>
+        <div class="nav-container">
+          <ul class="nav-links">
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Cellar.html">The Cellar</a></li>
+            <li><a href="Booking.html">Booking</a></li>
+            <li><a href="Contact_en.html" class="active">Contact</a></li>
+          </ul>
+          
+          <div class="language-selector">
+            <a href="Contacto.html" class="lang-button">
+              <img src="img/BanderaEspaña.webp" alt="Flag of Spain" title="Spanish" />
+            </a>
+            <a href="Contact_en.html" class="lang-button active">
+              <img src="img/BanderaReinoUnido.png" alt="Flag of the UK" title="English" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <section class="contact-container">
+      <h1 class="fade-element">Contact Us</h1>
+      <p class="contact-intro fade-element">Toasts, tapas, and Mediterranean recipes in historic cellars in the heart of Madrid.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info fade-element">
+          <div class="info-item">
+            <h2>Location</h2>
+            <p>20 Espoz y Mina St.</p>
+            <p>28012 Downtown, Madrid, Spain</p>
+          </div>
+
+          <div class="info-item">
+            <h2>Opening Hours</h2>
+            <p>Monday to Sunday: 12:00 PM – 01:00 AM</p>
+            <p><small>*Subject to change on public holidays.</small></p>
+          </div>
+
+          <div class="info-item">
+            <h2>Direct Contact</h2>
+            <p>Phone: +34 915 21 48 78</p>
+            <p>Email: contact@latintoreriamadrid.com</p>
+          </div>
+
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.660144583163!2d-3.7034506!3d40.4141667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422880f089679f%3A0x6e09c8502f1837a4!2sC.%20de%20Espoz%20y%20Mina%2C%2020%2C%20Centro%2C%2028012%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+              width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-form-box fade-element">
+          <h2>Send us a message</h2>
+          
+          <form class="contact-form">
+            <div class="grupo-input">
+              <input type="text" id="name" name="name" class="input-flotante" required>
+              <label for="name" class="label-flotante">Full Name</label>
+            </div>
+            
+            <div class="grupo-input">
+              <input type="email" id="email" name="email" class="input-flotante" required>
+              <label for="email" class="label-flotante">Email Address</label>
+            </div>
+            
+            <div class="grupo-input">
+              <input type="text" id="subject" name="subject" class="input-flotante" required>
+              <label for="subject" class="label-flotante">Subject</label>
+            </div>
+            
+            <div class="grupo-input">
+              <textarea id="message" name="message" class="input-flotante textarea-flotante" required></textarea>
+              <label for="message" class="label-flotante">How can we help you?</label>
+            </div>
+            
+            <button type="submit" class="btn-contacto">Send Message</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-vino fade-element">
+      <div class="footer-content">
+        <img src="img/PiePagina.png" alt="Decorative Footer" />
+      </div>
+    </footer>
+
+    <div class="copyright-bar">
+      <p>© Copyright - The Dry Cleaner's - powered by <strong>Hernan Fernandez</strong></p>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          preloader.classList.add("hidden");
+          setTimeout(() => { preloader.style.display = "none"; }, 300);
+        }, 500);
+      });
+
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); } 
+            else { entry.target.classList.remove('visible'); }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-element').forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

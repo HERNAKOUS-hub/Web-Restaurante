@@ -1,0 +1,285 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- ESTILOS GENERALES Y TIPOGRAFÍA EXACTA DE CARTA --- */
+body,
+html {
+  font-family: 'Times New Roman', Times, serif; 
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+
+.nav-links li a,
+.copyright-bar p {
+    font-family: Arial, sans-serif;
+}
+
+/* --- BARRA DE NAVEGACIÓN (HEADER) EXACTA DE CARTA --- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.logo-img img {
+  height: 120px; 
+  margin-right: 15px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 18px; 
+  letter-spacing: 1px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  text-decoration: underline;
+  color: #781f33; 
+}
+
+/* SELECTOR DE IDIOMA */
+.language-selector {
+    display: flex;
+    gap: 10px;
+    margin-left: 40px; 
+    position: absolute; 
+    right: 20px; 
+}
+
+.lang-button img {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.lang-button.active img {
+    opacity: 1;
+    border: 2px solid #781f33;
+    box-shadow: 0 0 5px rgba(120, 31, 51, 0.5);
+}
+
+/* Espaciador exacto */
+.spacer {
+  height: 140px; 
+}
+
+/* --- CONTENEDOR DE RESERVA --- */
+.reservation-container {
+  max-width: 850px;
+  margin: 50px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.reservation-container h1 {
+  color: #781f33;
+  font-size: 40px; /* Igualado al h1 de Carta */
+  margin-bottom: 30px;
+}
+
+.reserva-intro {
+  font-style: italic;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.reservation-form {
+  background-color: #f9f9f9;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.form-row .grupo-input {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* --- EFECTO "FLOATING LABEL" --- */
+.grupo-input {
+  position: relative;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.input-flotante {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+.textarea-flotante {
+  resize: none;
+  height: 80px;
+  padding-top: 20px;
+}
+
+.label-flotante {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #999;
+  font-size: 16px;
+  pointer-events: none; 
+  transition: 0.3s ease all;
+  font-family: Arial, sans-serif;
+}
+
+.input-flotante:focus ~ .label-flotante,
+.input-flotante:valid ~ .label-flotante {
+  top: -20px;
+  font-size: 12px;
+  color: #781f33;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-flotante:focus {
+  border-bottom: 2px solid #781f33;
+}
+
+.select-grupo select:invalid {
+  color: transparent; 
+}
+.select-grupo select:valid {
+  color: #333;
+}
+.select-grupo select option {
+  color: #333;
+}
+
+/* --- BOTÓN DE ENVÍO --- */
+.btn-reserva {
+  background-color: #781f33;
+  color: white;
+  border: none;
+  padding: 18px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.btn-reserva:hover {
+  background-color: #5a1726;
+  letter-spacing: 1px;
+}
+
+/* --- FOOTER & PRELOADER EXACTO DE CARTA --- */
+.copyright-bar {
+    background-color: #f1f1f1;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+.copyright-bar p {
+    margin: 0;
+    line-height: 1;
+}
+
+.footer-vino {
+  background-color: #ffffff;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-vino img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#preloader {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: white;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+}
+
+#preloader.hidden { opacity: 0; pointer-events: none; }
+#preloader img { width: 40%; height: auto; max-width: 550px; }
+
+@media (max-width: 768px) {
+  .reservation-form { padding: 30px 20px; }
+  .form-row { gap: 0; }
+}
+
+/* --- EFECTO DE ANIMACIÓN AL HACER SCROLL (FADE IN/OUT) --- */
+.fade-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

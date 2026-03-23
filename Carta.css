@@ -1,0 +1,365 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- ESTILOS GENERALES Y TIPOGRAFÍA --- */
+
+body,
+html {
+  /* Fuente principal serif para el cuerpo */
+  font-family: 'Times New Roman', Times, serif; 
+  color: #333;
+}
+
+h1, h2, h3 {
+  /* Fuente serif elegante para títulos */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+}
+
+/* Sobrescribir font-family para el menú y el copyright */
+.nav-links li a,
+.copyright-bar p {
+    font-family: Arial, sans-serif;
+}
+
+/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.logo-img img {
+  height: 120px; 
+  margin-right: 15px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 18px; 
+  letter-spacing: 1px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  text-decoration: underline;
+  color: #781f33; 
+}
+
+/* SELECTOR DE IDIOMA */
+.language-selector {
+    display: flex;
+    gap: 10px;
+    margin-left: 40px; 
+    position: absolute; 
+    right: 20px; 
+}
+
+.lang-button img {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.lang-button.active img {
+    opacity: 1;
+    border: 2px solid #781f33;
+    box-shadow: 0 0 5px rgba(120, 31, 51, 0.5);
+}
+
+/* Espaciador */
+.spacer {
+  height: 140px; 
+}
+
+/* --- SECCIÓN CARTA (menu-section) - LAYOUT CON FLEXBOX --- */
+
+.menu-section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 50px auto; 
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+.menu-section h1 {
+    text-align: center;
+    color: #781f33; 
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.menu-grid {
+    /* CLAVE: Usamos FLEXBOX para forzar las columnas */
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px 30px; 
+    margin-top: 40px;
+    justify-content: space-between; 
+}
+
+/* Regla para cada columna (cada DIV de categoría) */
+.menu-grid > div {
+    width: calc(33.33% - 20px); 
+    min-width: 280px;
+}
+
+/* Estilo responsivo para la Carta con Flexbox */
+@media (max-width: 1000px) {
+    .menu-grid > div {
+        width: calc(50% - 20px);
+    }
+}
+@media (max-width: 650px) {
+    .menu-grid > div {
+        width: 100%;
+    }
+}
+
+.menu-section h2 {
+    color: #781f33;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.menu-grid ul {
+    list-style: disc; 
+    padding-left: 20px;
+}
+
+.menu-grid li {
+    margin-bottom: 6px; 
+    font-size: 16px;
+    line-height: 1.5;
+    display: list-item; 
+}
+
+/* --- GALERÍA DE IMÁGENES --- */
+
+.gallery-title {
+    text-align: center;
+    color: #781f33; 
+    font-size: 32px; /* Un tamaño ligeramente menor que el h1 de la Carta (40px) */
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300; /* Mantenemos un peso ligero para un look elegante */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.gallery {
+    display: flex;
+    max-width: 1200px; 
+    margin: 80px auto; 
+    gap: 15px; 
+    padding: 0 20px;
+}
+
+.gallery .column {
+    flex: 1; 
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.gallery .column .imgContainer {
+    height: 300px; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery .column .imgContainer img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    display: block; 
+}
+
+.gallery .column .imgContainer img:hover {
+    transform: scale(1.1); 
+    filter: brightness(0.95); 
+}
+
+/* Responsivo para la Galería */
+@media (max-width: 800px) {
+    .gallery {
+        flex-wrap: wrap; 
+    }
+    .gallery .column {
+        /* Dos columnas en tablets */
+        flex: 1 1 calc(50% - 7.5px); 
+    }
+}
+
+@media (max-width: 550px) {
+    .gallery .column {
+        /* Una columna en móviles */
+        flex: 1 1 100%;
+    }
+}
+
+
+/* --- SECCIÓN INFORMATIVA (Solo para Inicio.html) --- */
+
+.info-section {
+  max-width: 1000px;
+  margin: 80px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 20px;
+  align-items: flex-start;
+}
+
+.info-texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-texto h2 {
+  font-size: 40px;
+  margin-bottom: 5px;
+  color: #781f33;
+}
+
+.info-texto h3 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #555;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.info-texto p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.info-imagen {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- PIE DE PÁGINA (FOOTER) --- */
+
+/* Barra de Copyright */
+.copyright-bar {
+    background-color: #f1f1f1;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+.copyright-bar p {
+    margin: 0;
+    line-height: 1;
+}
+
+/* Footer de la Imagen PiePagina.png */
+.footer-vino {
+  background-color: #ffffff;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-vino img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#preloader img {
+  width: 40%;
+  height: auto;
+  max-width: 550px;
+}
+
+/* --- EFECTO DE ANIMACIÓN AL HACER SCROLL (FADE IN/OUT) --- */
+.fade-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

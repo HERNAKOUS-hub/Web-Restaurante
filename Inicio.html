@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>La Tintorería</title>
+    <link rel="stylesheet" href="Inicio.css" />
+    <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img
+        src="img/LaTintoreriaLogo.png"
+        alt="Cargando..."
+        style="height: 250px"
+      />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo-img">
+          <img src="img/LaTintoreriaLogo.png" alt="Logo La Tintorería" />
+        </div>
+        <div class="nav-container">
+          <ul class="nav-links">
+            <li><a href="Carta.html">Carta</a></li>
+            <li><a href="Bodega.html">La Bodega</a></li>
+            <li><a href="Reserva.html">Reserva</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+          </ul>
+
+          <div class="language-selector">
+            <a href="Inicio.html" class="lang-button active" onclick="setLanguage('es')">
+              <img src="img/BanderaEspaña.webp" alt="Bandera de España" title="Español" />
+            </a>
+            <a href="Index.html" class="lang-button" onclick="setLanguage('en')">
+              <img
+                src="img/BanderaReinoUnido.png"
+                alt="Bandera de Reino Unido"
+                title="English"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <div class="slider fade-element">
+      <img src="img/TintoreriaEntrada.jpeg" class="active" alt="Imagen 1" />
+      <img src="img/TintoreriaInterior.jpeg" alt="Imagen 2" />
+      <img src="img/TintoreriaSotano.jpg" alt="Imagen 3" />
+
+      <div class="controls">
+        <button onclick="prevImage()">&#10094;</button>
+        <button onclick="nextImage()">&#10095;</button>
+      </div>
+
+      <div class="indicators">
+        <span onclick="goToImage(0)" class="active"></span>
+        <span onclick="goToImage(1)"></span>
+        <span onclick="goToImage(2)"></span>
+      </div>
+    </div>
+
+    <script>
+      const images = document.querySelectorAll(".slider img");
+      const indicators = document.querySelectorAll(".indicators span");
+      let current = 0;
+      let interval = setInterval(showNextImage, 5000);
+
+      function updateSlider(index) {
+        images[current].classList.remove("active");
+        indicators[current].classList.remove("active");
+        current = (index + images.length) % images.length;
+        images[current].classList.add("active");
+        indicators[current].classList.add("active");
+      }
+
+      function showNextImage() {
+        updateSlider(current + 1);
+      }
+
+      function prevImage() {
+        updateSlider(current - 1);
+        resetInterval();
+      }
+
+      function nextImage() {
+        updateSlider(current + 1);
+        resetInterval();
+      }
+
+      function goToImage(index) {
+        updateSlider(index);
+        resetInterval();
+      }
+
+      function resetInterval() {
+        clearInterval(interval);
+        interval = setInterval(showNextImage, 5000);
+      }
+
+      function setLanguage(lang) {
+        document.querySelectorAll(".lang-button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        const targetAlt =
+          lang === "es" ? "Bandera de España" : "Bandera de Reino Unido";
+        const targetButton = document.querySelector(
+          `.lang-button img[alt="${targetAlt}"]`
+        ).parentElement;
+        if (targetButton) {
+          targetButton.classList.add("active");
+        }
+        console.log("Idioma seleccionado:", lang);
+      }
+    </script>
+
+    <section class="info-section">
+      <div class="info-texto fade-element">
+        <h2>La Tintorería</h2>
+        <h3>Restaurante en el corazón de Madrid</h3>
+        <p><strong>C/ Espoz y Mina, 20. 28012 Madrid</strong></p>
+
+        <p>
+          Carta tradicional con toques imaginativos<br />
+          Cocina siempre abierta
+        </p>
+
+        <p>
+          Tostas, raciones y recetas mediterráneas en los sótanos de ladrillo y
+          piedra vista de un edificio del siglo XVII. Un entorno con historia
+          que crea una atmósfera íntima y con mucho encanto.
+        </p>
+
+        <p>
+          El nombre <strong>La Tintorería</strong> no es casual: es un guiño a
+          nuestra cuidada selección de vinos. Tintos, blancos, rosados y
+          espumosos pensados para todos los gustos y bolsillos. Una bodega
+          pensada para acompañar cada plato, cada momento, y cada tipo de
+          comensal.
+        </p>
+
+        <p>
+          En La Tintorería te espera una experiencia gastronómica brutal: comida
+          que está de escándalo, hecha con mimo y creatividad, por un precio que
+          no te hará temblar la cartera.
+        </p>
+
+        <p>
+          Ideal para quienes valoran el sabor auténtico, la atención cuidada y
+          el placer de comer bien sin complicaciones.
+        </p>
+      </div>
+
+      <div class="info-imagen fade-element">
+        <img
+          src="img/AcompañamientoInformacion.jpg"
+          alt="Interior de La Tintorería"
+        />
+      </div>
+    </section>
+
+    <footer class="footer-vino fade-element">
+      <div class="footer-content">
+        <img src="img/PiePagina.png" alt="Pie de Página Decorativo" />
+      </div>
+    </footer>
+
+    <div class="copyright-bar">
+      <p>
+        © Copyright - La Tintorería - powered by
+        <strong>Hernan Fernandez</strong>
+      </p>
+    </div>
+
+    <script>
+      // Preloader
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          preloader.classList.add("hidden");
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 300);
+        }, 500);
+      });
+
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.remove('visible'); // Quita la clase al salir de pantalla
+            }
+          });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.fade-element');
+        hiddenElements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

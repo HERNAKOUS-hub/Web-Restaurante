@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>La Tintorería - The Cellar</title>
+    <link rel="stylesheet" href="Bodega.css" /> 
+    <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="img/LaTintoreriaLogo.png" alt="Loading..." style="height: 250px" />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo-img">
+          <a href="Index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
+        </div>
+        <div class="nav-container">
+          <ul class="nav-links">
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="Cellar.html" class="active">The Cellar</a></li>
+            <li><a href="Booking.html">Booking</a></li>
+            <li><a href="Contact_en.html">Contact</a></li>
+          </ul>
+
+          <div class="language-selector">
+            <a href="Bodega.html" class="lang-button" onclick="setLanguage('es')">
+              <img src="img/BanderaEspaña.webp" alt="Flag of Spain" title="Spanish" />
+            </a>
+            <a href="Cellar.html" class="lang-button active" onclick="setLanguage('en')">
+              <img src="img/BanderaReinoUnido.png" alt="Flag of the United Kingdom" title="English" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <section id="bodega" class="menu-section">
+      <h1 class="fade-element">La Tintorería Wine List</h1>
+
+      <div class="menu-grid">
+        <div class="fade-element">
+          <h2>Rioja</h2>
+          <ul>
+            <li>Edarra Crianza - €3.85 / €22.20</li>
+            <li>Santiago Crianza - €3.85 / €21.95</li>
+            <li>Vivanco Reserva - €28.90</li>
+            <li>Viña Pomal Centenario Reserva - €33.75</li>
+          </ul>
+          <h2 class="sub-category">Rosé Wines</h2>
+          <ul>
+            <li>Montesierra Rosado (Somontano) - €3.65 / €19.25</li>
+            <li>Alquezar Rosado Semi-sweet Sparkling - €18.75</li>
+          </ul>
+        </div>
+
+        <div class="fade-element">
+          <h2>Red Wines</h2>
+          <h3>Ribera del Duero</h3>
+          <ul>
+            <li>Vega Real Roble - €3.65 / €21.25</li>
+            <li>Legaris Roble - €3.85 / €22.25</li>
+            <li>Buro Crianza - €27.30</li>
+            <li>Vega Real Reserva - €31.75</li>
+            <li>Abadía Retuerta Selec. Esp. - €36.75</li>
+          </ul>
+          <h3>Somontano</h3>
+          <ul>
+            <li>Montesierra Young - €3.65 / €18.25</li>
+            <li>Señorío de Lazán Crianza - €3.85 / €21.25</li>
+            <li>Marboré - €27.50</li>
+          </ul>
+          <h3>Madrid Wines</h3>
+          <ul>
+            <li>Senda Roble - €23.75</li>
+            <li>Initio Crianza - €26.75</li>
+          </ul>
+          <h3>La Mancha</h3>
+          <ul>
+            <li>Galanes Young Red - €19.50</li>
+            <li>Galanes Crianza Red - €21.55</li>
+          </ul>
+        </div>
+
+        <div class="fade-element">
+          <h2>White Wines</h2>
+          <ul>
+            <li>Vega Real Verdejo (Rueda) - €3.85 / €20.75</li>
+            <li>Montesierra White (Somontano) - €3.95 / €18.25</li>
+            <li>Martín Códax Albariño (Rías Baixas) - €25.75</li>
+            <li>Galanes Young White (La Mancha) - €19.50</li>
+            <li>Viñagal Sweet - €19.75</li>
+          </ul>
+          <h2 class="sub-category">Cava (Sparkling)</h2>
+          <ul>
+            <li>Adernats Brut-Nature - €22.35</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="info-texto fade-element">
+        <h2>The Art of Wine Preservation</h2>
+        <h3>Exceptional care, glass by glass.</h3>
+        <p>At La Tintorería, we understand that the quality of a wine lies in its care. Our cellar has been meticulously designed to ensure the perfect temperature, humidity, and darkness for every bottle.</p>
+        <p>We are dedicated to the handling of our products: from the initial selection until the moment the glass reaches your table, guaranteeing that every vintage expresses its full character and complexity.</p>
+        <p>This dedication to preservation is the key to ensuring every wine on our list offers an unforgettable experience.</p>
+      </div>
+      <div class="info-imagen fade-element">
+        <img src="img/Vino.webp" alt="Perfectly stored wine bottles" />
+      </div>
+    </section>
+
+    <footer class="footer-vino fade-element">
+      <div class="footer-content">
+        <img src="img/PiePagina.png" alt="Decorative Footer Image" />
+      </div>
+    </footer>
+
+    <div class="copyright-bar">
+      <p>© Copyright - La Tintorería - powered by <strong>Hernan Fernandez</strong></p>
+    </div>
+
+    <script>
+      function setLanguage(lang) {
+        document.querySelectorAll(".lang-button").forEach((btn) => btn.classList.remove("active"));
+        const targetAlt = lang === "es" ? "Flag of Spain" : "Flag of the United Kingdom";
+        const targetButton = document.querySelector(`.lang-button img[alt="${targetAlt}"]`).parentElement;
+        if (targetButton) targetButton.classList.add("active");
+      }
+
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          preloader.classList.add("hidden");
+          setTimeout(() => preloader.style.display = "none", 300);
+        }, 500);
+      });
+
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); } 
+            else { entry.target.classList.remove('visible'); }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-element').forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
