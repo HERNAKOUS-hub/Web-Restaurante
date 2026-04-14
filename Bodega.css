@@ -1,163 +1,366 @@
+/* =======================================================
+   🍷 ESTILOS GLOBALES - LA TINTORERÍA
+   ======================================================= */
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* --- ESTILOS GENERALES Y TIPOGRAFÍA --- */
 body, html {
-  font-family: 'Times New Roman', Times, serif; 
-  color: #333;
-  overflow-x: hidden; /* Evita cualquier scroll horizontal indeseado */
+    font-family: 'Times New Roman', Times, serif; 
+    color: #333;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Previene desplazamientos horizontales en móviles */
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
+/* Tipografía funcional para menús y datos técnicos */
 .nav-links li a,
-.copyright-bar p {
+.copyright-bar p,
+label,
+input,
+select {
     font-family: Arial, sans-serif;
 }
 
-/* --- BARRA DE NAVEGACIÓN (HEADER) --- */
+/* =======================================================
+   🏗️ CABECERA Y NAVEGACIÓN (HEADER)
+   ======================================================= */
+
 header {
-  position: fixed;
-  top: 0; width: 100%;
-  background-color: #ffffff;
-  z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
 }
 
-.logo-img img { height: 120px; margin-right: 15px; }
+.logo-img img {
+    height: 120px; 
+    margin-right: 15px;
+    transition: height 0.3s ease;
+}
 
 .nav-container {
-  display: flex; align-items: center; justify-content: center; width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .nav-links {
-  list-style: none; display: flex; gap: 40px; margin: 0; padding: 0; flex-wrap: wrap;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
 }
 
 .nav-links li a {
-  text-decoration: none; color: rgb(0, 0, 0); font-weight: bold; font-size: 18px; letter-spacing: 1px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px; 
+    letter-spacing: 1px;
+    transition: color 0.3s;
 }
 
-.nav-links li a:hover, .nav-links li a.active {
-  text-decoration: underline; color: #781f33; 
+.nav-links li a:hover,
+.nav-links li a.active {
+    text-decoration: underline;
+    color: #781f33; /* Color Vino Corporativo */
 }
 
+/* Selector de Idioma */
 .language-selector {
-    display: flex; gap: 10px; margin-left: 40px; position: absolute; right: 20px; 
+    display: flex;
+    gap: 10px;
+    margin-left: 40px; 
+    position: absolute; 
+    right: 20px; 
 }
 
 .lang-button img {
-    width: 30px; height: 20px; object-fit: cover; border: 1px solid #ccc; cursor: pointer; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .lang-button.active img {
-    opacity: 1; border: 2px solid #781f33; box-shadow: 0 0 5px rgba(120, 31, 51, 0.5);
+    opacity: 1;
+    border: 2px solid #781f33;
+    box-shadow: 0 0 5px rgba(120, 31, 51, 0.5);
 }
 
-.spacer { height: 140px; }
+.spacer {
+    height: 140px; 
+}
 
-/* --- SECCIÓN BODEGA --- */
+/* =======================================================
+   🍷 SECCIÓN BODEGA (ESTRUCTURA DE CARTA)
+   ======================================================= */
+
 .menu-section {
-    padding: 20px; max-width: 1200px; margin: 50px auto; 
-    font-family: 'Times New Roman', Times, serif; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 50px auto; 
 }
 
 .menu-section h1 {
-    text-align: center; color: #781f33; font-size: 40px; margin-bottom: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #781f33; 
+    font-size: 40px;
+    margin-bottom: 30px;
 }
 
 .menu-grid {
-    display: flex; flex-wrap: wrap; gap: 40px 30px; margin-top: 40px; justify-content: space-between; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px 30px; 
+    margin-top: 40px;
+    justify-content: space-between; 
 }
 
 .menu-grid > div {
-    width: calc(33.33% - 20px); min-width: 280px;
+    width: calc(33.33% - 20px); 
+    min-width: 280px;
 }
 
 .menu-section h2 {
-    color: #781f33; font-size: 24px; margin-top: 20px; margin-bottom: 10px;
+    color: #781f33;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .menu-section h3 {
-    color: #781f33; font-size: 18px; margin-top: 15px; margin-bottom: 5px;
+    color: #781f33;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .menu-grid ul {
-    list-style: disc; padding-left: 20px; margin-bottom: 20px; 
+    list-style: disc; 
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
 
 .menu-grid li {
-    margin-bottom: 6px; font-size: 16px; line-height: 1.5; display: list-item; 
+    margin-bottom: 6px; 
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-/* --- RESPONSIVO Y REORDENAMIENTO EN MÓVIL --- */
-@media (max-width: 1000px) {
-    .menu-grid > div { width: calc(50% - 20px); }
+/* =======================================================
+   📖 SECCIÓN INFORMATIVA (ARTE DE LA CONSERVACIÓN)
+   ======================================================= */
+
+.info-section {
+    max-width: 1000px;
+    margin: 80px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 20px;
+    align-items: flex-start;
+}
+
+.info-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-texto h2 {
+    font-size: 40px;
+    margin-bottom: 5px;
+    color: #781f33;
+}
+
+.info-texto h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: #555;
+    font-style: italic;
+}
+
+.info-texto p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.info-imagen {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* =======================================================
+   👣 PIE DE PÁGINA (FOOTER COMPLETO)
+   ======================================================= */
+
+.footer-vino {
+    background-color: #ffffff;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.footer-vino img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.copyright-bar {
+    background-color: #f1f1f1;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+
+/* =======================================================
+   ⌛ PRELOADER (PANTALLA DE CARGA)
+   ======================================================= */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.3s ease;
+}
+
+#preloader img {
+    width: 40%;
+    min-width: 200px;
+    max-width: 550px;
+    height: auto !important; /* Corrige el aplastamiento del logo en móvil */
+    object-fit: contain;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =======================================================
+   ✨ ANIMACIONES SCROLL (FADE IN/OUT)
+   ======================================================= */
+
+.fade-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =======================================================
+   📱 AJUSTES RESPONSIVE (MÓVILES Y TABLETS)
+   ======================================================= */
+
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .logo-img img {
+        height: 80px; 
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .language-selector {
+        position: static; 
+        margin-top: 15px;
+        margin-left: 0;
+        justify-content: center;
+    }
+    
+    .spacer {
+        height: 200px; /* Aumentado porque el menú ahora es más alto */
+    }
 }
 
 @media (max-width: 650px) {
     .menu-grid {
-        flex-direction: column; /* Apila las columnas verticalmente */
+        flex-direction: column;
     }
-    .menu-grid > div { width: 100%; }
     
-    /* MAGIA PARA EL ORDEN EN MÓVILES */
-    .col-1 { order: 1; } /* Primero Rioja y Rosados */
-    .col-3 { order: 2; } /* Segundo Blancos y Cava (se pone debajo de rosados) */
-    .col-2 { order: 3; } /* Tercero Tintos */
-}
+    .menu-grid > div {
+        width: 100%;
+    }
 
-/* --- SECCIÓN INFORMATIVA --- */
-.info-section {
-  max-width: 1000px; margin: 80px auto; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px 20px; align-items: flex-start;
-}
+    /* REORDENAMIENTO: Blancos y Cava debajo de Rosados */
+    .col-1 { order: 1; } /* Rioja y Rosados */
+    .col-3 { order: 2; } /* Blancos y Cava */
+    .col-2 { order: 3; } /* Tintos */
 
-.info-texto { flex: 1; min-width: 300px; }
-.info-texto h2 { font-size: 40px; margin-bottom: 5px; color: #781f33; }
-.info-texto h3 { font-size: 22px; margin-bottom: 30px; color: #555; font-weight: normal; font-style: italic; }
-.info-texto p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; text-align: justify; }
-.info-imagen { flex: 1; min-width: 300px; }
-.info-imagen img { width: 100%; height: auto; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .menu-section h1 {
+        font-size: 32px;
+    }
 
-/* --- PIE DE PÁGINA --- */
-.copyright-bar {
-    background-color: #f1f1f1; padding: 15px 20px; text-align: center; font-size: 14px; color: #666; border-top: 1px solid #ddd; width: 100%;
+    .info-texto h2 {
+        font-size: 30px;
+    }
+    
+    .info-section {
+        margin: 40px auto;
+    }
 }
-.copyright-bar p { margin: 0; line-height: 1; }
-
-.footer-vino {
-  background-color: #ffffff; padding: 0; text-align: center; width: 100%; display: block;
-}
-.footer-vino img {
-  width: 100%; height: auto; display: block; object-fit: cover;
-}
-
-#preloader img {
-  width: 40%;
-  min-width: 200px; /* Evita que el logo sea enano en móviles */
-  max-width: 400px;
-  height: auto !important; /* El !important anula los 250px del HTML y mantiene la proporción */
-  object-fit: contain;
-}
-
-/* Efecto Scroll */
-.fade-element {
-  opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform;
-}
-.fade-element.visible { opacity: 1; transform: translateY(0); }
