@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>La Tintorería - The Cellar</title>
     <link rel="stylesheet" href="Bodega.css" /> 
     <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
@@ -16,7 +14,7 @@
     <header>
       <nav>
         <div class="logo-img">
-          <a href="Index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
+          <a href="index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
         </div>
         <div class="nav-container">
           <ul class="nav-links">
@@ -44,7 +42,7 @@
       <h1 class="fade-element">La Tintorería Wine List</h1>
 
       <div class="menu-grid">
-        <div class="fade-element col-1">
+        <div class="fade-element">
           <h2>Rioja</h2>
           <ul>
             <li>Edarra Crianza - €3.85 / €22.20</li>
@@ -59,7 +57,7 @@
           </ul>
         </div>
 
-        <div class="fade-element col-2">
+        <div class="fade-element">
           <h2>Red Wines</h2>
           <h3>Ribera del Duero</h3>
           <ul>
@@ -87,7 +85,7 @@
           </ul>
         </div>
 
-        <div class="fade-element col-3">
+        <div class="fade-element">
           <h2>White Wines</h2>
           <ul>
             <li>Vega Real Verdejo (Rueda) - €3.85 / €20.75</li>
@@ -143,6 +141,7 @@
         }, 500);
       });
 
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
       document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
