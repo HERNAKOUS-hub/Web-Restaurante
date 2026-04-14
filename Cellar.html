@@ -2,19 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Tintorería - The Cellar</title>
-    <link rel="stylesheet" href="Bodega.css" /> 
+    <link rel="stylesheet" href="Bodega.css" />
     <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
   </head>
   <body>
     <div id="preloader">
-      <img src="img/LaTintoreriaLogo.png" alt="Loading..." style="height: 250px" />
+      <img src="img/LaTintoreriaLogo.png" alt="Loading..." />
     </div>
 
     <header>
       <nav>
         <div class="logo-img">
-          <a href="index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
+          <a href="Index.html"><img src="img/LaTintoreriaLogo.png" alt="La Tintorería Logo" /></a>
         </div>
         <div class="nav-container">
           <ul class="nav-links">
@@ -25,11 +26,11 @@
           </ul>
 
           <div class="language-selector">
-            <a href="Bodega.html" class="lang-button" onclick="setLanguage('es')">
+            <a href="Bodega.html" class="lang-button">
               <img src="img/BanderaEspaña.webp" alt="Flag of Spain" title="Spanish" />
             </a>
-            <a href="Cellar.html" class="lang-button active" onclick="setLanguage('en')">
-              <img src="img/BanderaReinoUnido.png" alt="Flag of the United Kingdom" title="English" />
+            <a href="Cellar.html" class="lang-button active">
+              <img src="img/BanderaReinoUnido.png" alt="Flag of the UK" title="English" />
             </a>
           </div>
         </div>
@@ -42,7 +43,7 @@
       <h1 class="fade-element">La Tintorería Wine List</h1>
 
       <div class="menu-grid">
-        <div class="fade-element">
+        <div class="fade-element col-1">
           <h2>Rioja</h2>
           <ul>
             <li>Edarra Crianza - €3.85 / €22.20</li>
@@ -50,14 +51,29 @@
             <li>Vivanco Reserva - €28.90</li>
             <li>Viña Pomal Centenario Reserva - €33.75</li>
           </ul>
+
           <h2 class="sub-category">Rosé Wines</h2>
           <ul>
             <li>Montesierra Rosado (Somontano) - €3.65 / €19.25</li>
             <li>Alquezar Rosado Semi-sweet Sparkling - €18.75</li>
           </ul>
+
+          <h2>White Wines</h2>
+          <ul>
+            <li>Vega Real Verdejo (Rueda) - €3.85 / €20.75</li>
+            <li>Montesierra White (Somontano) - €3.95 / €18.25</li>
+            <li>Martín Códax Albariño (Rías Baixas) - €25.75</li>
+            <li>Galanes Young White (La Mancha) - €19.50</li>
+            <li>Viñagal Sweet - €19.75</li>
+          </ul>
+
+          <h2 class="sub-category">Cava (Sparkling)</h2>
+          <ul>
+            <li>Adernats Brut-Nature - €22.35</li>
+          </ul>
         </div>
 
-        <div class="fade-element">
+        <div class="fade-element col-2">
           <h2>Red Wines</h2>
           <h3>Ribera del Duero</h3>
           <ul>
@@ -84,21 +100,6 @@
             <li>Galanes Crianza Red - €21.55</li>
           </ul>
         </div>
-
-        <div class="fade-element">
-          <h2>White Wines</h2>
-          <ul>
-            <li>Vega Real Verdejo (Rueda) - €3.85 / €20.75</li>
-            <li>Montesierra White (Somontano) - €3.95 / €18.25</li>
-            <li>Martín Códax Albariño (Rías Baixas) - €25.75</li>
-            <li>Galanes Young White (La Mancha) - €19.50</li>
-            <li>Viñagal Sweet - €19.75</li>
-          </ul>
-          <h2 class="sub-category">Cava (Sparkling)</h2>
-          <ul>
-            <li>Adernats Brut-Nature - €22.35</li>
-          </ul>
-        </div>
       </div>
     </section>
 
@@ -107,8 +108,7 @@
         <h2>The Art of Wine Preservation</h2>
         <h3>Exceptional care, glass by glass.</h3>
         <p>At La Tintorería, we understand that the quality of a wine lies in its care. Our cellar has been meticulously designed to ensure the perfect temperature, humidity, and darkness for every bottle.</p>
-        <p>We are dedicated to the handling of our products: from the initial selection until the moment the glass reaches your table, guaranteeing that every vintage expresses its full character and complexity.</p>
-        <p>This dedication to preservation is the key to ensuring every wine on our list offers an unforgettable experience.</p>
+        <p>We are dedicated to the handling of our products: from the initial selection until the moment the glass reaches your table.</p>
       </div>
       <div class="info-imagen fade-element">
         <img src="img/Vino.webp" alt="Perfectly stored wine bottles" />
@@ -126,13 +126,6 @@
     </div>
 
     <script>
-      function setLanguage(lang) {
-        document.querySelectorAll(".lang-button").forEach((btn) => btn.classList.remove("active"));
-        const targetAlt = lang === "es" ? "Flag of Spain" : "Flag of the United Kingdom";
-        const targetButton = document.querySelector(`.lang-button img[alt="${targetAlt}"]`).parentElement;
-        if (targetButton) targetButton.classList.add("active");
-      }
-
       window.addEventListener("load", function () {
         setTimeout(function () {
           const preloader = document.getElementById("preloader");
@@ -141,7 +134,6 @@
         }, 500);
       });
 
-      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
       document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -149,7 +141,6 @@
             else { entry.target.classList.remove('visible'); }
           });
         }, { threshold: 0.15 });
-
         document.querySelectorAll('.fade-element').forEach((el) => observer.observe(el));
       });
     </script>
