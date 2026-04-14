@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    
     <title>La Tintorería - La Bodega</title>
     <link rel="stylesheet" href="Bodega.css" />
     <link rel="icon" type="png" href="img/LaTintoreriaIcon.png" />
@@ -43,7 +42,7 @@
       <h1 class="fade-element">Bodega de La Tintorería</h1>
 
       <div class="menu-grid">
-        <div class="fade-element col-1">
+        <div class="fade-element">
           <h2>Rioja</h2>
           <ul>
             <li>Edarra Crianza - 3,85 / 22,20€</li>
@@ -58,7 +57,7 @@
           </ul>
         </div>
 
-        <div class="fade-element col-2">
+        <div class="fade-element">
           <h2>Tintos</h2>
           <h3>Ribera del Duero</h3>
           <ul>
@@ -86,7 +85,7 @@
           </ul>
         </div>
 
-        <div class="fade-element col-3">
+        <div class="fade-element">
           <h2>Vinos Blancos</h2>
           <ul>
             <li>Vega Real Verdejo (Rueda) - 3,85 / 20,75€</li>
@@ -142,6 +141,7 @@
         }, 500);
       });
 
+      // --- ANIMACIÓN SCROLL (FADE IN/OUT) ---
       document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
